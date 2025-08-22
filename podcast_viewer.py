@@ -1106,7 +1106,7 @@ class PodcastAnalyzer:
         
         return html_template
     
-    def generate_viewer(self, output_file: str = "podcast_viewer.html"):
+    def generate_viewer(self, output_file: str = "index.html"):
         """Generate the complete podcast analysis viewer"""
         print("Scanning for podcast episodes...")
         self.scan_episodes()
@@ -1135,8 +1135,8 @@ def main():
     parser = argparse.ArgumentParser(description="Generate a beautiful podcast analysis viewer")
     parser.add_argument("--directory", "-d", default="output", 
                        help="Directory containing podcast files (default: output directory)")
-    parser.add_argument("--output", "-o", default="podcast_viewer.html",
-                       help="Output HTML file name (default: podcast_viewer.html)")
+    parser.add_argument("--output", "-o", default="index.html",
+                       help="Output HTML file name (default: index.html)")
     
     args = parser.parse_args()
     
