@@ -255,23 +255,33 @@ class PodcastAnalyzer:
         }
         
         .channel-recent-badge {
-            width: 8px;
-            height: 8px;
-            background: #10b981;
-            border-radius: 50%;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 4px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 6px;
             flex-shrink: 0;
-            box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
-            animation: pulse-recent 2s infinite;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: glow-pulse 2s ease-in-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-left: auto;
         }
         
-        @keyframes pulse-recent {
+        @keyframes glow-pulse {
             0%, 100% { 
-                opacity: 1;
+                box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3), 
+                           inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                           0 0 8px rgba(16, 185, 129, 0.4);
                 transform: scale(1);
             }
             50% { 
-                opacity: 0.7;
-                transform: scale(1.1);
+                box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4), 
+                           inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                           0 0 12px rgba(16, 185, 129, 0.6);
+                transform: scale(1.05);
             }
         }
         
@@ -999,7 +1009,7 @@ class PodcastAnalyzer:
             
             # Add recent badge if this channel has episodes from last week
             if channel_name in self.recent_channels:
-                sidebar_html += f'    <span class="channel-recent-badge" title="New episode in last week"></span>\n'
+                sidebar_html += f'    <span class="channel-recent-badge" title="New episode in last week">NEW</span>\n'
             
             sidebar_html += f'  </div>\n'
             sidebar_html += f'  <div class="channel-episodes" id="episodes_{channel_id}">\n'
