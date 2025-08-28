@@ -860,15 +860,23 @@ class PodcastAnalyzer:
             elif 'youtu.be/' in url:
                 youtube_id = url.split('youtu.be/')[1].split('?')[0]
             
+            # Generate permalink at backend level
+            channel = episode['metadata'].get('channel', 'Unknown Channel')
+            channel_slug = channel.lower()
+            channel_slug = re.sub(r'[^a-z0-9]+', '-', channel_slug).strip('-')
+            identifier = youtube_id if youtube_id else f'episode-{i}'
+            permalink = f'#{channel_slug}/{identifier}'
+            
             episodes_json.append({
                 'index': i,  # Add explicit index for debugging
                 'title': episode['metadata'].get('title', 'Unknown Title'),
-                'channel': episode['metadata'].get('channel', 'Unknown Channel'),
+                'channel': channel,
                 'published': episode['metadata'].get('published', 'Unknown Date'),
                 'duration': episode['metadata'].get('duration', 'Unknown Duration'),
                 'views': episode['metadata'].get('views', 'Unknown Views'),
                 'url': url,
                 'youtube_id': youtube_id,
+                'permalink': permalink,
                 'content': markdown.markdown(episode['md_content'], extensions=['tables', 'fenced_code'])
             })
         
@@ -887,9 +895,7 @@ class PodcastAnalyzer:
             
             // Update URL for permalink functionality
             if (updateUrl) {{
-                const channelSlug = episode.channel.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-                const identifier = episode.youtube_id || `episode-${{episodeIndex}}`;
-                window.history.pushState(null, '', `#${{channelSlug}}/${{identifier}}`);
+                window.history.pushState(null, '', episode.permalink);
             }}
             
             // Process and enhance content formatting
@@ -1132,20 +1138,34 @@ class PodcastAnalyzer:
                 title = episode['metadata'].get('title', 'Unknown Title')
                 published = episode['metadata'].get('published', 'Unknown Date')
                 
-                # Find the correct index in self.episodes array
+                # Find the correct index in self.episodes array and generate permalink
                 correct_index = -1
+                permalink = ''
                 for i, ep in enumerate(self.episodes):
                     if (ep['metadata'].get('title') == episode['metadata'].get('title') and 
                         ep['metadata'].get('channel') == episode['metadata'].get('channel') and
                         ep['metadata'].get('published') == episode['metadata'].get('published')):
                         correct_index = i
+                        
+                        # Generate permalink at backend level
+                        url = ep['metadata'].get('url', '')
+                        youtube_id = ''
+                        if 'youtube.com/watch?v=' in url:
+                            youtube_id = url.split('v=')[1].split('&')[0]
+                        elif 'youtu.be/' in url:
+                            youtube_id = url.split('youtu.be/')[1].split('?')[0]
+                        
+                        channel_slug = channel_name.lower()
+                        channel_slug = re.sub(r'[^a-z0-9]+', '-', channel_slug).strip('-')
+                        identifier = youtube_id if youtube_id else f'episode-{i}'
+                        permalink = f'#{channel_slug}/{identifier}'
                         break
                 
                 # Truncate long titles
                 display_title = title if len(title) <= 45 else title[:42] + "..."
                 
                 sidebar_html += f'''
-                    <div class="episode-item" data-episode="{correct_index}">
+                    <div class="episode-item" data-episode="{correct_index}" data-permalink="{permalink}">
                         <div class="episode-icon"></div>
                         <div class="episode-details">
                             <div class="episode-title">{display_title}</div>
