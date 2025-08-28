@@ -121,6 +121,14 @@ class PodcastAnalyzer:
         # Sort episodes within each channel
         for channel in self.channels:
             self.channels[channel].sort(key=lambda x: x['metadata'].get('published', ''), reverse=True)
+        
+        # Sort channels by their latest episode date
+        sorted_channels = sorted(
+            self.channels.items(),
+            key=lambda x: x[1][0]['metadata'].get('published', '') if x[1] else '',
+            reverse=True
+        )
+        self.channels = dict(sorted_channels)
     
     def generate_css(self) -> str:
         """Generate CSS styles for the viewer"""
@@ -330,28 +338,6 @@ class PodcastAnalyzer:
             overflow: hidden;
         }
         
-        .episode-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 30px solid transparent;
-            border-top: 30px solid #e2e8f0;
-            border-bottom: 30px solid transparent;
-        }
-        
-        .episode-header::after {
-            content: '';
-            position: absolute;
-            top: 15px;
-            right: 10px;
-            width: 16px;
-            height: 16px;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjciIGZpbGw9IiM2Mzc0OGIiLz4KPHN0cm9rZSBzdHJva2U9IndoaXRlIiBkPSJNNSA4aDYiLz4KPC9zdmc+') no-repeat center;
-            background-size: contain;
-        }
         
         .header-title {
             font-size: 1.5rem;
@@ -394,17 +380,6 @@ class PodcastAnalyzer:
             overflow: hidden;
         }
         
-        .content-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid #e2e8f0;
-            border-bottom: 20px solid transparent;
-        }
         
         /* Guest Information Card */
         .guest-info {
@@ -418,17 +393,6 @@ class PodcastAnalyzer:
             overflow: hidden;
         }
         
-        .guest-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid var(--primary);
-            border-bottom: 20px solid transparent;
-        }
         
         /* Key Quote - Document card style */
         .key-quote {
@@ -446,17 +410,6 @@ class PodcastAnalyzer:
             overflow: hidden;
         }
         
-        .key-quote::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid #4b5563;
-            border-bottom: 20px solid transparent;
-        }
         
         /* Contents List Card */
         .contents-list {
@@ -470,17 +423,6 @@ class PodcastAnalyzer:
             overflow: hidden;
         }
         
-        .contents-list::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid #9ca3af;
-            border-bottom: 20px solid transparent;
-        }
         
         /* Section Quote Card */
         .section-quote {
@@ -497,17 +439,6 @@ class PodcastAnalyzer:
             overflow: hidden;
         }
         
-        .section-quote::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid var(--primary);
-            border-bottom: 20px solid transparent;
-        }
         
         .episode-content h1 {
             font-size: 24px;
@@ -556,17 +487,6 @@ class PodcastAnalyzer:
             overflow: hidden;
         }
         
-        .episode-content blockquote::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid var(--primary);
-            border-bottom: 20px solid transparent;
-        }
         
         .episode-content blockquote p {
             margin-bottom: 8px;
@@ -868,7 +788,6 @@ class PodcastAnalyzer:
                     ).join('');
                     
                     return `<div style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border: 1px solid #d1d5db; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #9ca3af; border-bottom: 20px solid transparent;"></div>
                         <h3 style="color: #2563eb; margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem;">Contents Covered:</h3>
                         <ol style="margin: 0; padding-left: 1.5rem; line-height: 1.6;">${{itemsHtml}}</ol>
                     </div>`;
@@ -880,7 +799,6 @@ class PodcastAnalyzer:
                 /<p><strong>Contents Covered:<\\/strong><\\/p>\\s*<ol>([\\s\\S]*?)<\\/ol>/gi,
                 (match, listContent) => {{
                     return `<div style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border: 1px solid #d1d5db; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #9ca3af; border-bottom: 20px solid transparent;"></div>
                         <h3 style="color: #2563eb; margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem;">Contents Covered:</h3>
                         <ol style="margin: 0; padding-left: 1.5rem; line-height: 1.6;">${{listContent}}</ol>
                     </div>`;
@@ -892,7 +810,6 @@ class PodcastAnalyzer:
                 /<p><strong>Guest:<\\/strong>([^<]*)<\\/p>/gi,
                 (match, guestInfo) => {{
                     return `<div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #2563eb; border-bottom: 20px solid transparent;"></div>
                         <strong style="color: #1e293b;">Guest:</strong> ${{guestInfo.trim()}}
                     </div>`;
                 }}
@@ -911,7 +828,6 @@ class PodcastAnalyzer:
                         .trim();
                     
                     return `<div style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; border: 1px solid #374151; border-radius: 12px; padding: 2rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); font-size: 1.1rem; font-style: italic; text-align: center; margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #4b5563; border-bottom: 20px solid transparent;"></div>
                         ${{cleanQuote}}
                     </div>`;
                 }}
@@ -958,7 +874,22 @@ class PodcastAnalyzer:
             
             // Show first episode by default if available
             if (episodes.length > 0) {{
+                // Show latest episode (first in array since sorted by date) by default
                 showEpisode(0);
+                
+                // Also expand the channel containing the first episode
+                const firstEpisode = document.querySelector('.episode-item[data-episode="0"]');
+                if (firstEpisode) {{
+                    const channel = firstEpisode.closest('.channel');
+                    if (channel) {{
+                        const channelEpisodes = channel.querySelector('.channel-episodes');
+                        const channelArrow = channel.querySelector('.channel-arrow');
+                        if (channelEpisodes && channelArrow) {{
+                            channelEpisodes.classList.add('expanded');
+                            channelArrow.classList.add('expanded');
+                        }}
+                    }}
+                }}
             }}
         }});
         """
@@ -1088,17 +1019,7 @@ class PodcastAnalyzer:
                     }}
                 }});
                 
-                // Expand first channel by default
-                document.addEventListener('DOMContentLoaded', function() {{
-                    // Find first channel and expand it
-                    const firstChannelEpisodes = document.querySelector('.channel-episodes');
-                    const firstChannelArrow = document.querySelector('.channel-arrow');
-                    
-                    if (firstChannelEpisodes && firstChannelArrow) {{
-                        firstChannelEpisodes.classList.add('expanded');
-                        firstChannelArrow.classList.add('expanded');
-                    }}
-                }});
+                // The channel with the latest episode will be expanded automatically when showing the latest episode
             </script>
         </body>
         </html>

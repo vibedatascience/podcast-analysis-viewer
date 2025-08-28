@@ -212,28 +212,6 @@
             overflow: hidden;
         }
         
-        .episode-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 30px solid transparent;
-            border-top: 30px solid #e2e8f0;
-            border-bottom: 30px solid transparent;
-        }
-        
-        .episode-header::after {
-            content: '';
-            position: absolute;
-            top: 15px;
-            right: 10px;
-            width: 16px;
-            height: 16px;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjciIGZpbGw9IiM2Mzc0OGIiLz4KPHN0cm9rZSBzdHJva2U9IndoaXRlIiBkPSJNNSA4aDYiLz4KPC9zdmc+') no-repeat center;
-            background-size: contain;
-        }
         
         .header-title {
             font-size: 1.5rem;
@@ -276,17 +254,6 @@
             overflow: hidden;
         }
         
-        .content-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid #e2e8f0;
-            border-bottom: 20px solid transparent;
-        }
         
         /* Guest Information Card */
         .guest-info {
@@ -300,17 +267,6 @@
             overflow: hidden;
         }
         
-        .guest-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid var(--primary);
-            border-bottom: 20px solid transparent;
-        }
         
         /* Key Quote - Document card style */
         .key-quote {
@@ -328,17 +284,6 @@
             overflow: hidden;
         }
         
-        .key-quote::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid #4b5563;
-            border-bottom: 20px solid transparent;
-        }
         
         /* Contents List Card */
         .contents-list {
@@ -352,17 +297,6 @@
             overflow: hidden;
         }
         
-        .contents-list::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid #9ca3af;
-            border-bottom: 20px solid transparent;
-        }
         
         /* Section Quote Card */
         .section-quote {
@@ -379,17 +313,6 @@
             overflow: hidden;
         }
         
-        .section-quote::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid var(--primary);
-            border-bottom: 20px solid transparent;
-        }
         
         .episode-content h1 {
             font-size: 24px;
@@ -438,17 +361,6 @@
             overflow: hidden;
         }
         
-        .episode-content blockquote::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-top: 20px solid var(--primary);
-            border-bottom: 20px solid transparent;
-        }
         
         .episode-content blockquote p {
             margin-bottom: 8px;
@@ -698,6 +610,222 @@
                     </div>
                     <div class="sidebar-content">
                         <div class="channel">
+  <div class="channel-name" onclick="toggleChannel('the_rest_is_politics')">
+    <span class="channel-arrow" id="arrow_the_rest_is_politics">▶</span>
+    The Rest Is Politics
+  </div>
+  <div class="channel-episodes" id="episodes_the_rest_is_politics">
+
+                    <div class="episode-item" data-episode="1">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Farage vs Corbyn: The UK's Next Prime Mini...</div>
+                            <div class="episode-date">2025-08-14</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="8">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Trump’s Game Show: How Much of Ukraine Wil...</div>
+                            <div class="episode-date">2025-08-12</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="15">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Inside Colombia’s Guerrilla Territory and ...</div>
+                            <div class="episode-date">2025-08-07</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('the_rest_is_history')">
+    <span class="channel-arrow" id="arrow_the_rest_is_history">▶</span>
+    The Rest Is History
+  </div>
+  <div class="channel-episodes" id="episodes_the_rest_is_history">
+
+                    <div class="episode-item" data-episode="0">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">How Lincoln's Killer Was Hunted Down: The ...</div>
+                            <div class="episode-date">2025-08-14</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="10">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Killing Lincoln: America's Greatest Tragedy</div>
+                            <div class="episode-date">2025-08-11</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('total_soccer_show')">
+    <span class="channel-arrow" id="arrow_total_soccer_show">▶</span>
+    Total Soccer Show
+  </div>
+  <div class="channel-episodes" id="episodes_total_soccer_show">
+
+                    <div class="episode-item" data-episode="2">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">EPL 25/26 preview: Leeds, Liverpool, Man C...</div>
+                            <div class="episode-date">2025-08-13</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="6">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">EPL 25/26 preview: Burnley, Chelsea, Cryst...</div>
+                            <div class="episode-date">2025-08-12</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="9">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">EPL 25/26 preview: Arsenal, Aston Villa, B...</div>
+                            <div class="episode-date">2025-08-11</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="14">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Where would Celtic finish in the Premier L...</div>
+                            <div class="episode-date">2025-08-08</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('the_totally_football_show')">
+    <span class="channel-arrow" id="arrow_the_totally_football_show">▶</span>
+    The Totally Football Show
+  </div>
+  <div class="channel-episodes" id="episodes_the_totally_football_show">
+
+                    <div class="episode-item" data-episode="3">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Premier League season preview: The title c...</div>
+                            <div class="episode-date">2025-08-13</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('lex_fridman')">
+    <span class="channel-arrow" id="arrow_lex_fridman">▶</span>
+    Lex Fridman
+  </div>
+  <div class="channel-episodes" id="episodes_lex_fridman">
+
+                    <div class="episode-item" data-episode="5">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Keyu Jin: China's Economy, Tariffs, Trade,...</div>
+                            <div class="episode-date">2025-08-13</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="18">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Jack Weatherford: Genghis Khan and the Mon...</div>
+                            <div class="episode-date">2025-07-31</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="24">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Demis Hassabis: Future of AI, Simulating R...</div>
+                            <div class="episode-date">2025-07-23</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="31">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">DHH: Future of Programming, AI, Ruby on Ra...</div>
+                            <div class="episode-date">2025-07-12</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="36">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Iran War Debate: Nuclear Weapons, Trump, P...</div>
+                            <div class="episode-date">2025-06-26</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="40">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Terence Tao: Hardest Problems in Mathemati...</div>
+                            <div class="episode-date">2025-06-14</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('managing_madrid')">
+    <span class="channel-arrow" id="arrow_managing_madrid">▶</span>
+    Managing Madrid
+  </div>
+  <div class="channel-episodes" id="episodes_managing_madrid">
+
+                    <div class="episode-item" data-episode="4">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Making Predictions For Real Madrid And Bar...</div>
+                            <div class="episode-date">2025-08-13</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('reddy_neumann_brown_pc')">
+    <span class="channel-arrow" id="arrow_reddy_neumann_brown_pc">▶</span>
+    Reddy Neumann Brown PC
+  </div>
+  <div class="channel-episodes" id="episodes_reddy_neumann_brown_pc">
+
+                    <div class="episode-item" data-episode="7">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Marriage Green Cards: Will More Couples Be...</div>
+                            <div class="episode-date">2025-08-12</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('history_hit')">
+    <span class="channel-arrow" id="arrow_history_hit">▶</span>
+    History Hit
+  </div>
+  <div class="channel-episodes" id="episodes_history_hit">
+
+                    <div class="episode-item" data-episode="11">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Hitler’s Last 48 Hours In The Bunker</div>
+                            <div class="episode-date">2025-08-11</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
   <div class="channel-name" onclick="toggleChannel('lennys_podcast')">
     <span class="channel-arrow" id="arrow_lennys_podcast">▶</span>
     Lenny's Podcast
@@ -802,38 +930,6 @@
                   </div>
 </div>
 <div class="channel">
-  <div class="channel-name" onclick="toggleChannel('vinay_lal')">
-    <span class="channel-arrow" id="arrow_vinay_lal">▶</span>
-    Vinay Lal
-  </div>
-  <div class="channel-episodes" id="episodes_vinay_lal">
-
-                    <div class="episode-item" data-episode="23">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">The Forever Enigmas of Japan: The Observat...</div>
-                            <div class="episode-date">2025-07-24</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="29">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Gandhi, Truth, and Nonviolence: Vinay Lal ...</div>
-                            <div class="episode-date">2025-07-14</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="55">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Some Thoughts on the British Colonization ...</div>
-                            <div class="episode-date">2023-12-06</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
   <div class="channel-name" onclick="toggleChannel('ringer_movies')">
     <span class="channel-arrow" id="arrow_ringer_movies">▶</span>
     Ringer Movies
@@ -922,6 +1018,54 @@
                   </div>
 </div>
 <div class="channel">
+  <div class="channel-name" onclick="toggleChannel('dwarkesh_patel')">
+    <span class="channel-arrow" id="arrow_dwarkesh_patel">▶</span>
+    Dwarkesh Patel
+  </div>
+  <div class="channel-episodes" id="episodes_dwarkesh_patel">
+
+                    <div class="episode-item" data-episode="22">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Sarah Paine: How Imperial Japan Defeated T...</div>
+                            <div class="episode-date">2025-07-25</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('vinay_lal')">
+    <span class="channel-arrow" id="arrow_vinay_lal">▶</span>
+    Vinay Lal
+  </div>
+  <div class="channel-episodes" id="episodes_vinay_lal">
+
+                    <div class="episode-item" data-episode="23">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">The Forever Enigmas of Japan: The Observat...</div>
+                            <div class="episode-date">2025-07-24</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="29">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Gandhi, Truth, and Nonviolence: Vinay Lal ...</div>
+                            <div class="episode-date">2025-07-14</div>
+                        </div>
+                    </div>
+                
+                    <div class="episode-item" data-episode="55">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Some Thoughts on the British Colonization ...</div>
+                            <div class="episode-date">2023-12-06</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
   <div class="channel-name" onclick="toggleChannel('the_seen_and_the_unseen')">
     <span class="channel-arrow" id="arrow_the_seen_and_the_unseen">▶</span>
     The Seen and the Unseen
@@ -962,302 +1106,6 @@
                   </div>
 </div>
 <div class="channel">
-  <div class="channel-name" onclick="toggleChannel('the_rest_is_politics')">
-    <span class="channel-arrow" id="arrow_the_rest_is_politics">▶</span>
-    The Rest Is Politics
-  </div>
-  <div class="channel-episodes" id="episodes_the_rest_is_politics">
-
-                    <div class="episode-item" data-episode="1">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Farage vs Corbyn: The UK's Next Prime Mini...</div>
-                            <div class="episode-date">2025-08-14</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="8">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Trump’s Game Show: How Much of Ukraine Wil...</div>
-                            <div class="episode-date">2025-08-12</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="15">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Inside Colombia’s Guerrilla Territory and ...</div>
-                            <div class="episode-date">2025-08-07</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('total_soccer_show')">
-    <span class="channel-arrow" id="arrow_total_soccer_show">▶</span>
-    Total Soccer Show
-  </div>
-  <div class="channel-episodes" id="episodes_total_soccer_show">
-
-                    <div class="episode-item" data-episode="2">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">EPL 25/26 preview: Leeds, Liverpool, Man C...</div>
-                            <div class="episode-date">2025-08-13</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="6">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">EPL 25/26 preview: Burnley, Chelsea, Cryst...</div>
-                            <div class="episode-date">2025-08-12</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="9">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">EPL 25/26 preview: Arsenal, Aston Villa, B...</div>
-                            <div class="episode-date">2025-08-11</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="14">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Where would Celtic finish in the Premier L...</div>
-                            <div class="episode-date">2025-08-08</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('the_rest_is_history')">
-    <span class="channel-arrow" id="arrow_the_rest_is_history">▶</span>
-    The Rest Is History
-  </div>
-  <div class="channel-episodes" id="episodes_the_rest_is_history">
-
-                    <div class="episode-item" data-episode="0">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">How Lincoln's Killer Was Hunted Down: The ...</div>
-                            <div class="episode-date">2025-08-14</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="10">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Killing Lincoln: America's Greatest Tragedy</div>
-                            <div class="episode-date">2025-08-11</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('the_polis_project')">
-    <span class="channel-arrow" id="arrow_the_polis_project">▶</span>
-    THE POLIS PROJECT
-  </div>
-  <div class="channel-episodes" id="episodes_the_polis_project">
-
-                    <div class="episode-item" data-episode="54">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">The New India: The Unmaking of the World’s...</div>
-                            <div class="episode-date">2024-10-30</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('the_totally_football_show')">
-    <span class="channel-arrow" id="arrow_the_totally_football_show">▶</span>
-    The Totally Football Show
-  </div>
-  <div class="channel-episodes" id="episodes_the_totally_football_show">
-
-                    <div class="episode-item" data-episode="3">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Premier League season preview: The title c...</div>
-                            <div class="episode-date">2025-08-13</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('lex_fridman')">
-    <span class="channel-arrow" id="arrow_lex_fridman">▶</span>
-    Lex Fridman
-  </div>
-  <div class="channel-episodes" id="episodes_lex_fridman">
-
-                    <div class="episode-item" data-episode="5">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Keyu Jin: China's Economy, Tariffs, Trade,...</div>
-                            <div class="episode-date">2025-08-13</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="18">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Jack Weatherford: Genghis Khan and the Mon...</div>
-                            <div class="episode-date">2025-07-31</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="24">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Demis Hassabis: Future of AI, Simulating R...</div>
-                            <div class="episode-date">2025-07-23</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="31">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">DHH: Future of Programming, AI, Ruby on Ra...</div>
-                            <div class="episode-date">2025-07-12</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="36">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Iran War Debate: Nuclear Weapons, Trump, P...</div>
-                            <div class="episode-date">2025-06-26</div>
-                        </div>
-                    </div>
-                
-                    <div class="episode-item" data-episode="40">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Terence Tao: Hardest Problems in Mathemati...</div>
-                            <div class="episode-date">2025-06-14</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('managing_madrid')">
-    <span class="channel-arrow" id="arrow_managing_madrid">▶</span>
-    Managing Madrid
-  </div>
-  <div class="channel-episodes" id="episodes_managing_madrid">
-
-                    <div class="episode-item" data-episode="4">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Making Predictions For Real Madrid And Bar...</div>
-                            <div class="episode-date">2025-08-13</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('dwarkesh_patel')">
-    <span class="channel-arrow" id="arrow_dwarkesh_patel">▶</span>
-    Dwarkesh Patel
-  </div>
-  <div class="channel-episodes" id="episodes_dwarkesh_patel">
-
-                    <div class="episode-item" data-episode="22">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Sarah Paine: How Imperial Japan Defeated T...</div>
-                            <div class="episode-date">2025-07-25</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('reddy_neumann_brown_pc')">
-    <span class="channel-arrow" id="arrow_reddy_neumann_brown_pc">▶</span>
-    Reddy Neumann Brown PC
-  </div>
-  <div class="channel-episodes" id="episodes_reddy_neumann_brown_pc">
-
-                    <div class="episode-item" data-episode="7">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Marriage Green Cards: Will More Couples Be...</div>
-                            <div class="episode-date">2025-08-12</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('village_preservation')">
-    <span class="channel-arrow" id="arrow_village_preservation">▶</span>
-    Village Preservation
-  </div>
-  <div class="channel-episodes" id="episodes_village_preservation">
-
-                    <div class="episode-item" data-episode="46">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Walking New York: Manhattan History on Foot</div>
-                            <div class="episode-date">2025-04-23</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('the_booking_club_podcast')">
-    <span class="channel-arrow" id="arrow_the_booking_club_podcast">▶</span>
-    The Booking Club podcast
-  </div>
-  <div class="channel-episodes" id="episodes_the_booking_club_podcast">
-
-                    <div class="episode-item" data-episode="53">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Why We Need a Global Food Philosophy, with...</div>
-                            <div class="episode-date">2024-12-14</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('the_riff_with_byrne_hobart_and_erik_torenberg')">
-    <span class="channel-arrow" id="arrow_the_riff_with_byrne_hobart_and_erik_torenberg">▶</span>
-    The Riff with Byrne Hobart and Erik Torenberg
-  </div>
-  <div class="channel-episodes" id="episodes_the_riff_with_byrne_hobart_and_erik_torenberg">
-
-                    <div class="episode-item" data-episode="52">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">How Jensen Huang Outpaces Tech Giants w/ T...</div>
-                            <div class="episode-date">2024-12-26</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
-  <div class="channel-name" onclick="toggleChannel('history_hit')">
-    <span class="channel-arrow" id="arrow_history_hit">▶</span>
-    History Hit
-  </div>
-  <div class="channel-episodes" id="episodes_history_hit">
-
-                    <div class="episode-item" data-episode="11">
-                        <div class="episode-icon"></div>
-                        <div class="episode-details">
-                            <div class="episode-title">Hitler’s Last 48 Hours In The Bunker</div>
-                            <div class="episode-date">2025-08-11</div>
-                        </div>
-                    </div>
-                  </div>
-</div>
-<div class="channel">
   <div class="channel-name" onclick="toggleChannel('harvard_science_book_talks_and_research_lectures')">
     <span class="channel-arrow" id="arrow_harvard_science_book_talks_and_research_lectures">▶</span>
     Harvard Science Book Talks and Research Lectures
@@ -1277,6 +1125,22 @@
                         <div class="episode-details">
                             <div class="episode-title">Carl Zimmer, "Air-Borne: The Hidden Histor...</div>
                             <div class="episode-date">2025-03-03</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('village_preservation')">
+    <span class="channel-arrow" id="arrow_village_preservation">▶</span>
+    Village Preservation
+  </div>
+  <div class="channel-episodes" id="episodes_village_preservation">
+
+                    <div class="episode-item" data-episode="46">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Walking New York: Manhattan History on Foot</div>
+                            <div class="episode-date">2025-04-23</div>
                         </div>
                     </div>
                   </div>
@@ -1309,6 +1173,54 @@
                         <div class="episode-details">
                             <div class="episode-title">How the World Eats, Julian Baggini in Conv...</div>
                             <div class="episode-date">2025-02-11</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('the_riff_with_byrne_hobart_and_erik_torenberg')">
+    <span class="channel-arrow" id="arrow_the_riff_with_byrne_hobart_and_erik_torenberg">▶</span>
+    The Riff with Byrne Hobart and Erik Torenberg
+  </div>
+  <div class="channel-episodes" id="episodes_the_riff_with_byrne_hobart_and_erik_torenberg">
+
+                    <div class="episode-item" data-episode="52">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">How Jensen Huang Outpaces Tech Giants w/ T...</div>
+                            <div class="episode-date">2024-12-26</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('the_booking_club_podcast')">
+    <span class="channel-arrow" id="arrow_the_booking_club_podcast">▶</span>
+    The Booking Club podcast
+  </div>
+  <div class="channel-episodes" id="episodes_the_booking_club_podcast">
+
+                    <div class="episode-item" data-episode="53">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">Why We Need a Global Food Philosophy, with...</div>
+                            <div class="episode-date">2024-12-14</div>
+                        </div>
+                    </div>
+                  </div>
+</div>
+<div class="channel">
+  <div class="channel-name" onclick="toggleChannel('the_polis_project')">
+    <span class="channel-arrow" id="arrow_the_polis_project">▶</span>
+    THE POLIS PROJECT
+  </div>
+  <div class="channel-episodes" id="episodes_the_polis_project">
+
+                    <div class="episode-item" data-episode="54">
+                        <div class="episode-icon"></div>
+                        <div class="episode-details">
+                            <div class="episode-title">The New India: The Unmaking of the World’s...</div>
+                            <div class="episode-date">2024-10-30</div>
                         </div>
                     </div>
                   </div>
@@ -1963,7 +1875,6 @@
                     ).join('');
                     
                     return `<div style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border: 1px solid #d1d5db; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #9ca3af; border-bottom: 20px solid transparent;"></div>
                         <h3 style="color: #2563eb; margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem;">Contents Covered:</h3>
                         <ol style="margin: 0; padding-left: 1.5rem; line-height: 1.6;">${itemsHtml}</ol>
                     </div>`;
@@ -1975,7 +1886,6 @@
                 /<p><strong>Contents Covered:<\/strong><\/p>\s*<ol>([\s\S]*?)<\/ol>/gi,
                 (match, listContent) => {
                     return `<div style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border: 1px solid #d1d5db; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #9ca3af; border-bottom: 20px solid transparent;"></div>
                         <h3 style="color: #2563eb; margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem;">Contents Covered:</h3>
                         <ol style="margin: 0; padding-left: 1.5rem; line-height: 1.6;">${listContent}</ol>
                     </div>`;
@@ -1987,7 +1897,6 @@
                 /<p><strong>Guest:<\/strong>([^<]*)<\/p>/gi,
                 (match, guestInfo) => {
                     return `<div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #2563eb; border-bottom: 20px solid transparent;"></div>
                         <strong style="color: #1e293b;">Guest:</strong> ${guestInfo.trim()}
                     </div>`;
                 }
@@ -2006,7 +1915,6 @@
                         .trim();
                     
                     return `<div style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; border: 1px solid #374151; border-radius: 12px; padding: 2rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); font-size: 1.1rem; font-style: italic; text-align: center; margin: 1.5rem 0; position: relative; overflow: hidden;">
-                        <div style="content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid #4b5563; border-bottom: 20px solid transparent;"></div>
                         ${cleanQuote}
                     </div>`;
                 }
@@ -2053,7 +1961,22 @@
             
             // Show first episode by default if available
             if (episodes.length > 0) {
+                // Show latest episode (first in array since sorted by date) by default
                 showEpisode(0);
+                
+                // Also expand the channel containing the first episode
+                const firstEpisode = document.querySelector('.episode-item[data-episode="0"]');
+                if (firstEpisode) {
+                    const channel = firstEpisode.closest('.channel');
+                    if (channel) {
+                        const channelEpisodes = channel.querySelector('.channel-episodes');
+                        const channelArrow = channel.querySelector('.channel-arrow');
+                        if (channelEpisodes && channelArrow) {
+                            channelEpisodes.classList.add('expanded');
+                            channelArrow.classList.add('expanded');
+                        }
+                    }
+                }
             }
         });
         
@@ -2095,17 +2018,7 @@
                     }
                 });
                 
-                // Expand first channel by default
-                document.addEventListener('DOMContentLoaded', function() {
-                    // Find first channel and expand it
-                    const firstChannelEpisodes = document.querySelector('.channel-episodes');
-                    const firstChannelArrow = document.querySelector('.channel-arrow');
-                    
-                    if (firstChannelEpisodes && firstChannelArrow) {
-                        firstChannelEpisodes.classList.add('expanded');
-                        firstChannelArrow.classList.add('expanded');
-                    }
-                });
+                // The channel with the latest episode will be expanded automatically when showing the latest episode
             </script>
         </body>
         </html>
