@@ -852,6 +852,14 @@ class PodcastAnalyzer:
         """Generate JavaScript for interactivity"""
         episodes_json = []
         for i, episode in enumerate(self.episodes):
+            # Extract YouTube ID from URL
+            url = episode['metadata'].get('url', '')
+            youtube_id = ''
+            if 'youtube.com/watch?v=' in url:
+                youtube_id = url.split('v=')[1].split('&')[0]
+            elif 'youtu.be/' in url:
+                youtube_id = url.split('youtu.be/')[1].split('?')[0]
+            
             episodes_json.append({
                 'index': i,  # Add explicit index for debugging
                 'title': episode['metadata'].get('title', 'Unknown Title'),
@@ -859,7 +867,8 @@ class PodcastAnalyzer:
                 'published': episode['metadata'].get('published', 'Unknown Date'),
                 'duration': episode['metadata'].get('duration', 'Unknown Duration'),
                 'views': episode['metadata'].get('views', 'Unknown Views'),
-                'url': episode['metadata'].get('url', ''),
+                'url': url,
+                'youtube_id': youtube_id,
                 'content': markdown.markdown(episode['md_content'], extensions=['tables', 'fenced_code'])
             })
         
@@ -879,7 +888,8 @@ class PodcastAnalyzer:
             // Update URL for permalink functionality
             if (updateUrl) {{
                 const channelSlug = episode.channel.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-                window.history.pushState(null, '', `#${{channelSlug}}/episode-${{episodeIndex}}`);
+                const identifier = episode.youtube_id || `episode-${{episodeIndex}}`;
+                window.history.pushState(null, '', `#${{channelSlug}}/${{identifier}}`);
             }}
             
             // Process and enhance content formatting
@@ -1031,7 +1041,7 @@ class PodcastAnalyzer:
             const hash = window.location.hash.slice(1); // Remove #
             if (!hash) return false;
             
-            // Parse hash format: channel-slug/episode-123
+            // Parse hash format: channel-slug/youtube-id or channel-slug/episode-123
             const parts = hash.split('/');
             if (parts.length >= 1) {{
                 const channelSlug = parts[0];
@@ -1041,8 +1051,20 @@ class PodcastAnalyzer:
                 
                 if (channelName) {{
                     let episodeIndex = null;
-                    if (parts[1] && parts[1].startsWith('episode-')) {{
-                        episodeIndex = parseInt(parts[1].replace('episode-', ''));
+                    
+                    if (parts[1]) {{
+                        const identifier = parts[1];
+                        
+                        // Try to find episode by YouTube ID first
+                        episodeIndex = episodes.findIndex(ep => ep.youtube_id === identifier);
+                        
+                        // If not found and it's an episode-123 format, parse it
+                        if (episodeIndex === -1 && identifier.startsWith('episode-')) {{
+                            const indexFromUrl = parseInt(identifier.replace('episode-', ''));
+                            if (indexFromUrl >= 0 && indexFromUrl < episodes.length) {{
+                                episodeIndex = indexFromUrl;
+                            }}
+                        }}
                     }}
                     
                     expandChannelAndShowEpisode(channelName, episodeIndex);
