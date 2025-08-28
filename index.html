@@ -103,6 +103,27 @@
             transition: background-color 0.15s ease;
         }
         
+        .channel-recent-badge {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
+            animation: pulse-recent 2s infinite;
+        }
+        
+        @keyframes pulse-recent {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+        
         .channel-name:hover {
             background: var(--surface-hover);
         }
@@ -664,6 +685,7 @@
   <div class="channel-name" onclick="toggleChannel('lennys_podcast')">
     <span class="channel-arrow" id="arrow_lennys_podcast">▶</span>
     Lenny's Podcast
+    <span class="channel-recent-badge" title="New episode in last week"></span>
   </div>
   <div class="channel-episodes" id="episodes_lennys_podcast">
 
@@ -728,6 +750,7 @@
   <div class="channel-name" onclick="toggleChannel('the_totally_football_show')">
     <span class="channel-arrow" id="arrow_the_totally_football_show">▶</span>
     The Totally Football Show
+    <span class="channel-recent-badge" title="New episode in last week"></span>
   </div>
   <div class="channel-episodes" id="episodes_the_totally_football_show">
 
@@ -752,6 +775,7 @@
   <div class="channel-name" onclick="toggleChannel('libero')">
     <span class="channel-arrow" id="arrow_libero">▶</span>
     Libero
+    <span class="channel-recent-badge" title="New episode in last week"></span>
   </div>
   <div class="channel-episodes" id="episodes_libero">
 
@@ -768,6 +792,7 @@
   <div class="channel-name" onclick="toggleChannel('the_seen_and_the_unseen')">
     <span class="channel-arrow" id="arrow_the_seen_and_the_unseen">▶</span>
     The Seen and the Unseen
+    <span class="channel-recent-badge" title="New episode in last week"></span>
   </div>
   <div class="channel-episodes" id="episodes_the_seen_and_the_unseen">
 

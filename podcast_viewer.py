@@ -8,7 +8,7 @@ import os
 import re
 import markdown
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, List, Tuple, Optional
 import json
 
@@ -17,6 +17,7 @@ class PodcastAnalyzer:
         self.directory = Path(directory)
         self.episodes = []
         self.channels = {}
+        self.recent_channels = set()
         
     def extract_metadata_from_txt(self, txt_file: Path) -> Dict:
         """Extract metadata from TXT file"""
@@ -75,6 +76,11 @@ class PodcastAnalyzer:
         """Scan directory for podcast episode files"""
         self.episodes = []
         self.channels = {}
+        self.recent_channels = set()
+        
+        # Calculate date threshold for "recent" episodes (1 week from today)
+        today = datetime.now()
+        one_week_ago = today - timedelta(days=7)
         
         # Find all TXT files
         txt_files = list(self.directory.glob("*.txt"))
@@ -114,6 +120,25 @@ class PodcastAnalyzer:
             if channel not in self.channels:
                 self.channels[channel] = []
             self.channels[channel].append(episode)
+            
+            # Check if this episode is recent (within last week)
+            published_str = metadata.get('published', '')
+            if published_str:
+                try:
+                    # Try common date formats
+                    episode_date = None
+                    for date_format in ['%Y-%m-%d', '%d/%m/%Y', '%m/%d/%Y', '%B %d, %Y']:
+                        try:
+                            episode_date = datetime.strptime(published_str, date_format)
+                            break
+                        except ValueError:
+                            continue
+                    
+                    # If we found a valid date and it's recent, mark this channel as recent
+                    if episode_date and episode_date >= one_week_ago:
+                        self.recent_channels.add(channel)
+                except Exception as e:
+                    pass  # Skip date parsing errors
         
         # Sort episodes by date (newest first)
         self.episodes.sort(key=lambda x: x['metadata'].get('published', ''), reverse=True)
@@ -227,6 +252,27 @@ class PodcastAnalyzer:
             align-items: center;
             gap: 6px;
             transition: background-color 0.15s ease;
+        }
+        
+        .channel-recent-badge {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
+            animation: pulse-recent 2s infinite;
+        }
+        
+        @keyframes pulse-recent {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
         }
         
         .channel-name:hover {
@@ -950,6 +996,11 @@ class PodcastAnalyzer:
             sidebar_html += f'  <div class="channel-name" onclick="toggleChannel(\'{channel_id}\')">\n'
             sidebar_html += f'    <span class="channel-arrow" id="arrow_{channel_id}">▶</span>\n'
             sidebar_html += f'    {channel_name}\n'
+            
+            # Add recent badge if this channel has episodes from last week
+            if channel_name in self.recent_channels:
+                sidebar_html += f'    <span class="channel-recent-badge" title="New episode in last week"></span>\n'
+            
             sidebar_html += f'  </div>\n'
             sidebar_html += f'  <div class="channel-episodes" id="episodes_{channel_id}">\n'
             
@@ -1133,7 +1184,13 @@ class PodcastAnalyzer:
         
         print(f"Found {len(self.episodes)} episodes across {len(self.channels)} channels:")
         for channel, episodes in self.channels.items():
-            print(f"  - {channel}: {len(episodes)} episodes")
+            recent_indicator = " 🟢" if channel in self.recent_channels else ""
+            print(f"  - {channel}: {len(episodes)} episodes{recent_indicator}")
+        
+        if self.recent_channels:
+            print(f"\nChannels with episodes in the last week ({len(self.recent_channels)}):")
+            for channel in sorted(self.recent_channels):
+                print(f"  🟢 {channel}")
         
         print("Generating HTML viewer...")
         html_content = self.generate_html()
