@@ -1747,7 +1747,7 @@
   }
 ];
         
-        function showEpisode(episodeIndex) {
+        function showEpisode(episodeIndex, updateUrl = true) {
             const episode = episodes[episodeIndex];
             if (!episode) return;
             
@@ -1756,6 +1756,12 @@
                 item.classList.remove('active');
             });
             document.querySelector(`[data-episode="${episodeIndex}"]`).classList.add('active');
+            
+            // Update URL for permalink functionality
+            if (updateUrl) {
+                const channelSlug = episode.channel.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                window.history.pushState(null, '', `#${channelSlug}/episode-${episodeIndex}`);
+            }
             
             // Process and enhance content formatting
             let processedContent = episode.content;
@@ -1870,6 +1876,63 @@
             window.scrollTo(0, 0);
         }
         
+        // Function to expand a channel and show episode
+        function expandChannelAndShowEpisode(channelName, episodeIndex = null) {
+            // Find the channel by name
+            const channelSlug = channelName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            const channelId = `episodes_${channelSlug.replace(/-/g, '_')}`;
+            const arrowId = `arrow_${channelSlug.replace(/-/g, '_')}`;
+            
+            const channelEpisodes = document.getElementById(channelId);
+            const channelArrow = document.getElementById(arrowId);
+            
+            if (channelEpisodes && channelArrow) {
+                channelEpisodes.classList.add('expanded');
+                channelArrow.classList.add('expanded');
+            }
+            
+            // If specific episode index provided, show it
+            if (episodeIndex !== null && episodes[episodeIndex]) {
+                showEpisode(episodeIndex, false); // Don't update URL again
+            } else {
+                // Show first episode of this channel
+                const channelEpisodes = episodes.filter(ep => ep.channel === channelName);
+                if (channelEpisodes.length > 0) {
+                    // Find the index of the first episode for this channel
+                    const firstEpisodeIndex = episodes.findIndex(ep => ep.channel === channelName);
+                    if (firstEpisodeIndex !== -1) {
+                        showEpisode(firstEpisodeIndex, false);
+                    }
+                }
+            }
+        }
+        
+        // Function to handle URL hash changes and deep linking
+        function handleUrlHash() {
+            const hash = window.location.hash.slice(1); // Remove #
+            if (!hash) return false;
+            
+            // Parse hash format: channel-slug/episode-123
+            const parts = hash.split('/');
+            if (parts.length >= 1) {
+                const channelSlug = parts[0];
+                const channelName = episodes.find(ep => 
+                    ep.channel.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') === channelSlug
+                )?.channel;
+                
+                if (channelName) {
+                    let episodeIndex = null;
+                    if (parts[1] && parts[1].startsWith('episode-')) {
+                        episodeIndex = parseInt(parts[1].replace('episode-', ''));
+                    }
+                    
+                    expandChannelAndShowEpisode(channelName, episodeIndex);
+                    return true;
+                }
+            }
+            return false;
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             // Add click handlers to episode items
             document.querySelectorAll('.episode-item').forEach((item) => {
@@ -1877,10 +1940,13 @@
                 item.addEventListener('click', () => showEpisode(episodeIndex));
             });
             
-            // Show first episode by default if available
-            if (episodes.length > 0) {
+            // Handle deep linking from URL hash
+            const hashHandled = handleUrlHash();
+            
+            // Show first episode by default if no hash was handled
+            if (!hashHandled && episodes.length > 0) {
                 // Show latest episode (first in array since sorted by date) by default
-                showEpisode(0);
+                showEpisode(0, false); // Don't update URL for default load
                 
                 // Also expand the channel containing the first episode
                 const firstEpisode = document.querySelector('.episode-item[data-episode="0"]');
@@ -1896,6 +1962,9 @@
                     }
                 }
             }
+            
+            // Listen for hash changes (back/forward buttons)
+            window.addEventListener('hashchange', handleUrlHash);
         });
         
                 
