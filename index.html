@@ -59,6 +59,29 @@
             background: var(--surface-hover);
         }
         
+        .coffee-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+            margin-top: 8px;
+        }
+        
+        .coffee-link:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+        
+        .coffee-icon {
+            width: 12px;
+            height: 12px;
+            filter: opacity(0.6);
+        }
+        
         .sidebar h1 {
             font-size: 13px;
             font-weight: 600;
@@ -689,6 +712,15 @@
                 <div class="sidebar" id="sidebar">
                     <div class="sidebar-header">
                         <h1><span class="sidebar-icon"></span>Podcast Episodes</h1>
+                        <a href="https://buymeacoffee.com/rahulxc" target="_blank" class="coffee-link" title="Support this project">
+                            <svg class="coffee-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.5 3h-13C4.67 3 4 3.67 4 4.5v5.15c0 3.29 2.68 5.95 5.97 5.95h2.06c3.29 0 5.97-2.66 5.97-5.95V4.5C18 3.67 17.33 3 16.5 3zm1.5 6.65c0 2.43-1.97 4.4-4.4 4.4h-2.2c-2.43 0-4.4-1.97-4.4-4.4V5h11v4.65z"/>
+                                <path d="M20 8.5h-1.5v1.15c0 .55-.45 1-1 1s-1-.45-1-1V8.5H20c.55 0 1-.45 1-1s-.45-1-1-1h-3.5c-.55 0-1 .45-1 1v3.15c0 1.66 1.34 3 3 3s3-1.34 3-3V8.5z"/>
+                                <circle cx="7.5" cy="7.5" r="1"/>
+                                <circle cx="12.5" cy="7.5" r="1"/>
+                            </svg>
+                            Buy me a coffee
+                        </a>
                     </div>
                     <div class="sidebar-content">
                         <div class="channel">

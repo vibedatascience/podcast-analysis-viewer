@@ -144,6 +144,55 @@ function showEpisode(episodeIndex) {
 - Proper touch target sizing (44px minimum)
 - Accessibility improvements (ARIA labels)
 
+### ✅ Phase 5: Recent Episode Indicators
+**Date: 2025-08-28**
+
+#### Dynamic "NEW" Badge System
+**Programmatic Recent Detection:**
+```python
+# Calculate date threshold for "recent" episodes (1 week from today)
+today = datetime.now()
+one_week_ago = today - timedelta(days=7)
+
+# Check if episode is recent and mark channel
+if episode_date and episode_date >= one_week_ago:
+    self.recent_channels.add(channel)
+```
+
+**Smart Date Parsing:**
+- Supports multiple date formats: `%Y-%m-%d`, `%d/%m/%Y`, `%m/%d/%Y`, `%B %d, %Y`
+- Graceful fallback for parsing errors
+- No hardcoded dates or channel names - fully dynamic
+
+**Visual Design:**
+- **Cool "NEW" Badge**: Text-based instead of simple dot
+- **Gradient Background**: Green gradient from `#10b981` to `#059669`
+- **Glow Animation**: Pulsing effect with shadow and scale changes
+- **Professional Styling**: Rounded corners, inner shadow, subtle border
+- **Smart Positioning**: Right-aligned with `margin-left: auto`
+
+**CSS Implementation:**
+```css
+.channel-recent-badge {
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 4px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: glow-pulse 2s ease-in-out infinite;
+    margin-left: auto;
+}
+```
+
+**Current Active Indicators:**
+- Lenny's Podcast **NEW** (2025-08-28)
+- The Totally Football Show **NEW** (2025-08-28)  
+- Libero **NEW** (2025-08-26)
+- The Seen and the Unseen **NEW** (2025-08-25)
+
 ---
 
 ## Technical Architecture
@@ -171,10 +220,11 @@ function showEpisode(episodeIndex) {
 ## Current State & Statistics
 
 ### Content Analysis
-- **57 total episodes** processed successfully
-- **22 different channels** automatically detected
-- **File pairing**: 57 TXT files with corresponding MD files
+- **49 total episodes** processed successfully  
+- **15 different channels** automatically detected
+- **File pairing**: 49 TXT files with corresponding MD files
 - **Content types**: Politics, Tech, Sports, Movies, History, etc.
+- **Recent episodes**: 4 channels with episodes from last 7 days
 
 ### Features Implemented
 ✅ Automatic channel detection and grouping  
@@ -185,6 +235,9 @@ function showEpisode(episodeIndex) {
 ✅ Clean card-based content formatting  
 ✅ Keyboard accessibility and proper ARIA labels  
 ✅ GitHub Pages deployment with automatic updates  
+✅ **NEW**: Dynamic "NEW" badges for channels with recent episodes (last 7 days)  
+✅ **NEW**: Programmatic date detection without hardcoding  
+✅ **NEW**: Animated gradient badges with glow effects  
 
 ### Technical Specifications
 - **Languages**: Python 3, HTML5, CSS3, JavaScript ES6+
@@ -219,4 +272,4 @@ function showEpisode(episodeIndex) {
 
 **Status**: ✅ **COMPLETE - Fully Functional Production Ready**  
 **Deployment**: https://vibedatascience.github.io/podcast-analysis-viewer/  
-**Last Updated**: 2025-08-28
+**Last Updated**: 2025-08-28 (Evening Session - Added "NEW" Badge System)
