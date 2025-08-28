@@ -473,19 +473,37 @@
             color: white;
             border: none;
             border-radius: 8px;
-            padding: 10px;
+            padding: 12px;
             cursor: pointer;
             box-shadow: var(--shadow);
+            font-size: 16px;
+            transition: all 0.2s ease;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .mobile-menu-toggle:hover {
             background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .mobile-menu-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        /* Hide button when sidebar is open */
+        .mobile-menu-toggle.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
         
         /* Mobile Responsive Design */
         @media (max-width: 768px) {
             .mobile-menu-toggle {
-                display: block;
+                display: flex;
             }
             
             .sidebar {
@@ -508,10 +526,38 @@
                 bottom: 0;
                 background: rgba(0, 0, 0, 0.5);
                 z-index: 999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
             }
             
             .sidebar-overlay.show {
                 display: block;
+                opacity: 1;
+            }
+            
+            /* Add close button to sidebar when open */
+            .sidebar.open::before {
+                content: '×';
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                color: var(--text-light);
+                cursor: pointer;
+                z-index: 1001;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: var(--surface-hover);
+                transition: all 0.2s ease;
+            }
+            
+            .sidebar.open::before:hover {
+                background: var(--border);
+                color: var(--text);
             }
             
             .main-content {
@@ -600,7 +646,13 @@
             </style>
         </head>
         <body>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
             <div class="sidebar-overlay" onclick="closeMobileMenu()"></div>
             
             <div class="container">
@@ -1998,23 +2050,71 @@
                 function toggleMobileMenu() {
                     const sidebar = document.getElementById('sidebar');
                     const overlay = document.querySelector('.sidebar-overlay');
-                    sidebar.classList.toggle('open');
-                    overlay.classList.toggle('show');
+                    const toggleButton = document.querySelector('.mobile-menu-toggle');
+                    
+                    const isOpen = sidebar.classList.contains('open');
+                    
+                    if (isOpen) {
+                        closeMobileMenu();
+                    } else {
+                        sidebar.classList.add('open');
+                        overlay.classList.add('show');
+                        toggleButton.classList.add('hidden');
+                        
+                        // Prevent body scrolling when menu is open
+                        document.body.style.overflow = 'hidden';
+                    }
                 }
                 
                 function closeMobileMenu() {
                     const sidebar = document.getElementById('sidebar');
                     const overlay = document.querySelector('.sidebar-overlay');
+                    const toggleButton = document.querySelector('.mobile-menu-toggle');
+                    
                     sidebar.classList.remove('open');
                     overlay.classList.remove('show');
+                    toggleButton.classList.remove('hidden');
+                    
+                    // Restore body scrolling
+                    document.body.style.overflow = '';
                 }
                 
-                // Close mobile menu when episode is selected
+                // Close mobile menu when episode is selected or close button clicked
                 document.addEventListener('click', function(e) {
+                    // Close when episode item is clicked
                     if (e.target.closest('.episode-item')) {
                         if (window.innerWidth <= 768) {
                             closeMobileMenu();
                         }
+                    }
+                    
+                    // Close when clicking the X button on sidebar (pseudo-element click detection)
+                    if (e.target.classList.contains('sidebar') && e.target.classList.contains('open')) {
+                        const rect = e.target.getBoundingClientRect();
+                        const clickX = e.clientX - rect.left;
+                        const clickY = e.clientY - rect.top;
+                        
+                        // Check if click is in the close button area (top-right corner)
+                        if (clickX > rect.width - 50 && clickY < 50) {
+                            closeMobileMenu();
+                        }
+                    }
+                });
+                
+                // Handle escape key to close mobile menu
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && window.innerWidth <= 768) {
+                        const sidebar = document.getElementById('sidebar');
+                        if (sidebar.classList.contains('open')) {
+                            closeMobileMenu();
+                        }
+                    }
+                });
+                
+                // Close menu when window is resized to desktop size
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        closeMobileMenu();
                     }
                 });
                 
