@@ -606,7 +606,6 @@ class PodcastAnalyzer:
             transition: all 0.2s ease;
             width: 44px;
             height: 44px;
-            display: flex;
             align-items: center;
             justify-content: center;
         }
