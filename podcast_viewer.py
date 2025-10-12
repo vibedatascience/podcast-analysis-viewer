@@ -13,7 +13,7 @@ from typing import Dict, List, Tuple, Optional
 import json
 
 class PodcastAnalyzer:
-    def __init__(self, directory: str = "output"):
+    def __init__(self, directory: str = "/Users/rahulchaudhary/youtube_subs_extractor/output"):
         self.directory = Path(directory)
         self.episodes = []
         self.channels = {}
@@ -1363,8 +1363,8 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(description="Generate a beautiful podcast analysis viewer")
-    parser.add_argument("--directory", "-d", default="output", 
-                       help="Directory containing podcast files (default: output directory)")
+    parser.add_argument("--directory", "-d", default="/Users/rahulchaudhary/youtube_subs_extractor/output",
+                       help="Directory containing podcast files (default: /Users/rahulchaudhary/youtube_subs_extractor/output)")
     parser.add_argument("--output", "-o", default="index.html",
                        help="Output HTML file name (default: index.html)")
     
