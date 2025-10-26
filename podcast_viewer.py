@@ -202,12 +202,15 @@ class PodcastAnalyzer:
             position: fixed;
             height: 100vh;
             box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
         }
         
         .sidebar-header {
             padding: 16px 20px 12px 20px;
             border-bottom: 1px solid var(--border);
             background: var(--surface-hover);
+            flex-shrink: 0;
         }
         
         .coffee-link {
@@ -253,6 +256,9 @@ class PodcastAnalyzer:
         
         .sidebar-content {
             padding: 8px 0;
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
         
         .channel {
@@ -715,10 +721,18 @@ class PodcastAnalyzer:
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
                 z-index: 1000;
+                height: 100vh;
+                max-height: 100vh;
             }
             
             .sidebar.open {
                 transform: translateX(0);
+            }
+            
+            .sidebar-content {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                max-height: calc(100vh - 100px);
             }
             
             .sidebar-overlay {
@@ -819,6 +833,11 @@ class PodcastAnalyzer:
         @media (max-width: 480px) {
             .sidebar {
                 width: 100%;
+                max-height: 100vh;
+            }
+            
+            .sidebar-content {
+                max-height: calc(100vh - 100px);
             }
             
             .episode-container {
