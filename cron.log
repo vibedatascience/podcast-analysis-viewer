@@ -545,3 +545,270 @@ Fri Oct 24 03:30:09 EDT 2025: Pushing to GitHub...
 To github.com:vibedatascience/podcast-analysis-viewer.git
    ae15458..411f894  main -> main
 Fri Oct 24 03:30:12 EDT 2025: Update complete!
+Tue Oct 28 03:30:00 EDT 2025: Running podcast_viewer.py...
+Scanning for podcast episodes...
+Warning: No corresponding MD file found for 2025-06-20_The_Totally_Football_Show_Trents_Real_debut_and_a_glimpse_of_the_new_Man_City.txt
+Warning: No corresponding MD file found for 2025-06-13_The_Totally_Football_Show_Tense_time_for_Tuchel_and_The_Club_World_Cup_is_here.txt
+Warning: No corresponding MD file found for 2025-06-10_The_Totally_Football_Show_Frank_set_for_Spurs_while_Spalletti_exits_Italy.txt
+Warning: No corresponding MD file found for 2025-08-07_Total_Soccer_Show_Will_Sesko_be_another_expensive_Man_Utd_flop.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_The_Admiral_Who_Defied_Orders_and_Changed_the_Fate_of_Britain.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_Ad_Free_-_How_a_Disobedient_Admiral_changed_British_History_Nelson_EP_3.txt
+Warning: No corresponding MD file found for 2025-08-12_Libero_Five_Questions_For_The_Premier_League_Season_Libero_043.txt
+Warning: No corresponding MD file found for 2025-07-31_The_Rest_Is_Politics_Why_We_Still_Dont_Know_the_Whole_Epstein_Story.txt
+Warning: No corresponding MD file found for 2025-08-11_The_Rest_Is_History_AD_FREE_How_Lincolns_Killer_Was_Hunted_Down_The_Most_Bizarre_Manhunt_In.txt
+Warning: No corresponding MD file found for 2025-10-17_The_Ezra_Klein_Show_Can_the_Israel-Hamas_Deal_Hold_The_Ezra_Klein_Show.txt
+Warning: No corresponding MD file found for 2025-09-22_The_Rest_Is_History_Greek_Mythology_The_Riddle_of_the_Sphinx_Episode_2_AD_FREE.txt
+Found 285 episodes across 24 channels:
+  - Ringer Movies: 15 episodes 🟢
+  - How I AI: 5 episodes 🟢
+  - The Rest Is History: 19 episodes 🟢
+  - Managing Madrid: 12 episodes 🟢
+  - Andrew Huberman: 10 episodes 🟢
+  - Lenny's Podcast: 17 episodes 🟢
+  - The Totally Football Show: 21 episodes 🟢
+  - a16z: 26 episodes 🟢
+  - The Ezra Klein Show: 19 episodes 🟢
+  - Libero: 14 episodes 🟢
+  - ASYMMETRIC Podcast: 3 episodes 🟢
+  - Foreign Affairs: 15 episodes 🟢
+  - The Rest Is Politics: 6 episodes 🟢
+  - Carnegie Endowment: 18 episodes 🟢
+  - Y Combinator: 7 episodes
+  - Reddy Neumann Brown PC: 10 episodes
+  - Dwarkesh Patel: 15 episodes
+  - Lex Fridman: 12 episodes
+  - The Seen and the Unseen: 15 episodes
+  - Total Soccer Show: 4 episodes
+  - History Hit: 1 episodes
+  - All-In Podcast: 5 episodes
+  - Vinay Lal: 2 episodes
+  - Daliana Liu: 14 episodes
+
+Channels with episodes in the last week (14):
+  🟢 ASYMMETRIC Podcast
+  🟢 Andrew Huberman
+  🟢 Carnegie Endowment
+  🟢 Foreign Affairs
+  🟢 How I AI
+  🟢 Lenny's Podcast
+  🟢 Libero
+  🟢 Managing Madrid
+  🟢 Ringer Movies
+  🟢 The Ezra Klein Show
+  🟢 The Rest Is History
+  🟢 The Rest Is Politics
+  🟢 The Totally Football Show
+  🟢 a16z
+Generating HTML viewer...
+✅ Podcast viewer generated successfully: index.html
+Open index.html in your web browser to view the podcast analysis.
+Tue Oct 28 03:30:10 EDT 2025: Changes detected, committing...
+[main 57a86ac] Auto-update: Regenerate podcast viewer index.html
+ 1 file changed, 723 insertions(+), 665 deletions(-)
+Tue Oct 28 03:30:10 EDT 2025: Pushing to GitHub...
+To github.com:vibedatascience/podcast-analysis-viewer.git
+   9075f4e..57a86ac  main -> main
+Tue Oct 28 03:30:12 EDT 2025: Update complete!
+Wed Oct 29 03:30:00 EDT 2025: Running podcast_viewer.py...
+Scanning for podcast episodes...
+Warning: No corresponding MD file found for 2025-06-20_The_Totally_Football_Show_Trents_Real_debut_and_a_glimpse_of_the_new_Man_City.txt
+Warning: No corresponding MD file found for 2025-06-13_The_Totally_Football_Show_Tense_time_for_Tuchel_and_The_Club_World_Cup_is_here.txt
+Warning: No corresponding MD file found for 2025-06-10_The_Totally_Football_Show_Frank_set_for_Spurs_while_Spalletti_exits_Italy.txt
+Warning: No corresponding MD file found for 2025-10-21_Hoover_Institution_Thomas_Sowell_A_Free_Man_Uncommon_Knowledge.txt
+Warning: No corresponding MD file found for 2025-08-07_Total_Soccer_Show_Will_Sesko_be_another_expensive_Man_Utd_flop.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_The_Admiral_Who_Defied_Orders_and_Changed_the_Fate_of_Britain.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_Ad_Free_-_How_a_Disobedient_Admiral_changed_British_History_Nelson_EP_3.txt
+Warning: No corresponding MD file found for 2025-08-12_Libero_Five_Questions_For_The_Premier_League_Season_Libero_043.txt
+Warning: No corresponding MD file found for 2025-07-31_The_Rest_Is_Politics_Why_We_Still_Dont_Know_the_Whole_Epstein_Story.txt
+Warning: No corresponding MD file found for 2025-08-11_The_Rest_Is_History_AD_FREE_How_Lincolns_Killer_Was_Hunted_Down_The_Most_Bizarre_Manhunt_In.txt
+Warning: No corresponding MD file found for 2025-10-17_The_Ezra_Klein_Show_Can_the_Israel-Hamas_Deal_Hold_The_Ezra_Klein_Show.txt
+Warning: No corresponding MD file found for 2025-09-22_The_Rest_Is_History_Greek_Mythology_The_Riddle_of_the_Sphinx_Episode_2_AD_FREE.txt
+Found 297 episodes across 25 channels:
+  - Carnegie Endowment: 19 episodes 🟢
+  - Managing Madrid: 13 episodes 🟢
+  - a16z: 27 episodes 🟢
+  - The Ezra Klein Show: 20 episodes 🟢
+  - The Rest Is Politics: 7 episodes 🟢
+  - Libero: 15 episodes 🟢
+  - Y Combinator: 8 episodes 🟢
+  - Ringer Movies: 15 episodes 🟢
+  - Reddy Neumann Brown PC: 11 episodes 🟢
+  - How I AI: 5 episodes 🟢
+  - The Rest Is History: 19 episodes 🟢
+  - Andrew Huberman: 10 episodes 🟢
+  - Lenny's Podcast: 17 episodes 🟢
+  - The Totally Football Show: 21 episodes 🟢
+  - Hoover Institution: 4 episodes 🟢
+  - ASYMMETRIC Podcast: 3 episodes 🟢
+  - Foreign Affairs: 15 episodes 🟢
+  - Dwarkesh Patel: 15 episodes
+  - Lex Fridman: 12 episodes
+  - The Seen and the Unseen: 15 episodes
+  - Total Soccer Show: 4 episodes
+  - History Hit: 1 episodes
+  - All-In Podcast: 5 episodes
+  - Vinay Lal: 2 episodes
+  - Daliana Liu: 14 episodes
+
+Channels with episodes in the last week (17):
+  🟢 ASYMMETRIC Podcast
+  🟢 Andrew Huberman
+  🟢 Carnegie Endowment
+  🟢 Foreign Affairs
+  🟢 Hoover Institution
+  🟢 How I AI
+  🟢 Lenny's Podcast
+  🟢 Libero
+  🟢 Managing Madrid
+  🟢 Reddy Neumann Brown PC
+  🟢 Ringer Movies
+  🟢 The Ezra Klein Show
+  🟢 The Rest Is History
+  🟢 The Rest Is Politics
+  🟢 The Totally Football Show
+  🟢 Y Combinator
+  🟢 a16z
+Generating HTML viewer...
+✅ Podcast viewer generated successfully: index.html
+Open index.html in your web browser to view the podcast analysis.
+Wed Oct 29 03:30:11 EDT 2025: Changes detected, committing...
+[main 3173bd6] Auto-update: Regenerate podcast viewer index.html
+ 1 file changed, 1366 insertions(+), 1115 deletions(-)
+Wed Oct 29 03:30:11 EDT 2025: Pushing to GitHub...
+To github.com:vibedatascience/podcast-analysis-viewer.git
+   57a86ac..3173bd6  main -> main
+Wed Oct 29 03:30:13 EDT 2025: Update complete!
+Thu Oct 30 03:30:00 EDT 2025: Running podcast_viewer.py...
+Scanning for podcast episodes...
+Warning: No corresponding MD file found for 2025-06-20_The_Totally_Football_Show_Trents_Real_debut_and_a_glimpse_of_the_new_Man_City.txt
+Warning: No corresponding MD file found for 2025-06-13_The_Totally_Football_Show_Tense_time_for_Tuchel_and_The_Club_World_Cup_is_here.txt
+Warning: No corresponding MD file found for 2025-06-10_The_Totally_Football_Show_Frank_set_for_Spurs_while_Spalletti_exits_Italy.txt
+Warning: No corresponding MD file found for 2025-08-07_Total_Soccer_Show_Will_Sesko_be_another_expensive_Man_Utd_flop.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_The_Admiral_Who_Defied_Orders_and_Changed_the_Fate_of_Britain.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_Ad_Free_-_How_a_Disobedient_Admiral_changed_British_History_Nelson_EP_3.txt
+Warning: No corresponding MD file found for 2025-08-12_Libero_Five_Questions_For_The_Premier_League_Season_Libero_043.txt
+Warning: No corresponding MD file found for 2025-07-31_The_Rest_Is_Politics_Why_We_Still_Dont_Know_the_Whole_Epstein_Story.txt
+Warning: No corresponding MD file found for 2025-08-11_The_Rest_Is_History_AD_FREE_How_Lincolns_Killer_Was_Hunted_Down_The_Most_Bizarre_Manhunt_In.txt
+Warning: No corresponding MD file found for 2025-10-17_The_Ezra_Klein_Show_Can_the_Israel-Hamas_Deal_Hold_The_Ezra_Klein_Show.txt
+Warning: No corresponding MD file found for 2025-09-22_The_Rest_Is_History_Greek_Mythology_The_Riddle_of_the_Sphinx_Episode_2_AD_FREE.txt
+Found 302 episodes across 25 channels:
+  - Carnegie Endowment: 19 episodes 🟢
+  - a16z: 28 episodes 🟢
+  - Ringer Movies: 16 episodes 🟢
+  - Reddy Neumann Brown PC: 12 episodes 🟢
+  - Hoover Institution: 6 episodes 🟢
+  - Managing Madrid: 13 episodes 🟢
+  - The Ezra Klein Show: 20 episodes 🟢
+  - The Rest Is Politics: 7 episodes 🟢
+  - Libero: 15 episodes 🟢
+  - Y Combinator: 8 episodes 🟢
+  - How I AI: 5 episodes 🟢
+  - The Rest Is History: 19 episodes 🟢
+  - Andrew Huberman: 10 episodes 🟢
+  - Lenny's Podcast: 17 episodes 🟢
+  - The Totally Football Show: 21 episodes 🟢
+  - ASYMMETRIC Podcast: 3 episodes 🟢
+  - Foreign Affairs: 15 episodes
+  - Dwarkesh Patel: 15 episodes
+  - Lex Fridman: 12 episodes
+  - The Seen and the Unseen: 15 episodes
+  - Total Soccer Show: 4 episodes
+  - History Hit: 1 episodes
+  - All-In Podcast: 5 episodes
+  - Vinay Lal: 2 episodes
+  - Daliana Liu: 14 episodes
+
+Channels with episodes in the last week (16):
+  🟢 ASYMMETRIC Podcast
+  🟢 Andrew Huberman
+  🟢 Carnegie Endowment
+  🟢 Hoover Institution
+  🟢 How I AI
+  🟢 Lenny's Podcast
+  🟢 Libero
+  🟢 Managing Madrid
+  🟢 Reddy Neumann Brown PC
+  🟢 Ringer Movies
+  🟢 The Ezra Klein Show
+  🟢 The Rest Is History
+  🟢 The Rest Is Politics
+  🟢 The Totally Football Show
+  🟢 Y Combinator
+  🟢 a16z
+Generating HTML viewer...
+✅ Podcast viewer generated successfully: index.html
+Open index.html in your web browser to view the podcast analysis.
+Thu Oct 30 03:30:10 EDT 2025: Changes detected, committing...
+[main ad42068] Auto-update: Regenerate podcast viewer index.html
+ 1 file changed, 1009 insertions(+), 910 deletions(-)
+Thu Oct 30 03:30:11 EDT 2025: Pushing to GitHub...
+To github.com:vibedatascience/podcast-analysis-viewer.git
+   3173bd6..ad42068  main -> main
+Thu Oct 30 03:30:13 EDT 2025: Update complete!
+Fri Oct 31 03:30:00 EDT 2025: Running podcast_viewer.py...
+Scanning for podcast episodes...
+Warning: No corresponding MD file found for 2025-06-20_The_Totally_Football_Show_Trents_Real_debut_and_a_glimpse_of_the_new_Man_City.txt
+Warning: No corresponding MD file found for 2025-06-13_The_Totally_Football_Show_Tense_time_for_Tuchel_and_The_Club_World_Cup_is_here.txt
+Warning: No corresponding MD file found for 2025-06-10_The_Totally_Football_Show_Frank_set_for_Spurs_while_Spalletti_exits_Italy.txt
+Warning: No corresponding MD file found for 2025-08-07_Total_Soccer_Show_Will_Sesko_be_another_expensive_Man_Utd_flop.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_The_Admiral_Who_Defied_Orders_and_Changed_the_Fate_of_Britain.txt
+Warning: No corresponding MD file found for 2025-10-20_The_Rest_Is_History_Ad_Free_-_How_a_Disobedient_Admiral_changed_British_History_Nelson_EP_3.txt
+Warning: No corresponding MD file found for 2025-08-12_Libero_Five_Questions_For_The_Premier_League_Season_Libero_043.txt
+Warning: No corresponding MD file found for 2025-07-31_The_Rest_Is_Politics_Why_We_Still_Dont_Know_the_Whole_Epstein_Story.txt
+Warning: No corresponding MD file found for 2025-08-11_The_Rest_Is_History_AD_FREE_How_Lincolns_Killer_Was_Hunted_Down_The_Most_Bizarre_Manhunt_In.txt
+Warning: No corresponding MD file found for 2025-10-17_The_Ezra_Klein_Show_Can_the_Israel-Hamas_Deal_Hold_The_Ezra_Klein_Show.txt
+Warning: No corresponding MD file found for 2025-09-22_The_Rest_Is_History_Greek_Mythology_The_Riddle_of_the_Sphinx_Episode_2_AD_FREE.txt
+Found 311 episodes across 25 channels:
+  - Hoover Institution: 8 episodes 🟢
+  - The Rest Is History: 20 episodes 🟢
+  - a16z: 29 episodes 🟢
+  - Foreign Affairs: 16 episodes 🟢
+  - The Rest Is Politics: 8 episodes 🟢
+  - Y Combinator: 9 episodes 🟢
+  - Andrew Huberman: 11 episodes 🟢
+  - The Totally Football Show: 22 episodes 🟢
+  - Carnegie Endowment: 19 episodes 🟢
+  - Ringer Movies: 16 episodes 🟢
+  - Reddy Neumann Brown PC: 12 episodes 🟢
+  - Managing Madrid: 13 episodes 🟢
+  - The Ezra Klein Show: 20 episodes 🟢
+  - Libero: 15 episodes 🟢
+  - How I AI: 5 episodes 🟢
+  - Lenny's Podcast: 17 episodes 🟢
+  - ASYMMETRIC Podcast: 3 episodes
+  - Dwarkesh Patel: 15 episodes
+  - Lex Fridman: 12 episodes
+  - The Seen and the Unseen: 15 episodes
+  - Total Soccer Show: 4 episodes
+  - History Hit: 1 episodes
+  - All-In Podcast: 5 episodes
+  - Vinay Lal: 2 episodes
+  - Daliana Liu: 14 episodes
+
+Channels with episodes in the last week (16):
+  🟢 Andrew Huberman
+  🟢 Carnegie Endowment
+  🟢 Foreign Affairs
+  🟢 Hoover Institution
+  🟢 How I AI
+  🟢 Lenny's Podcast
+  🟢 Libero
+  🟢 Managing Madrid
+  🟢 Reddy Neumann Brown PC
+  🟢 Ringer Movies
+  🟢 The Ezra Klein Show
+  🟢 The Rest Is History
+  🟢 The Rest Is Politics
+  🟢 The Totally Football Show
+  🟢 Y Combinator
+  🟢 a16z
+Generating HTML viewer...
+✅ Podcast viewer generated successfully: index.html
+Open index.html in your web browser to view the podcast analysis.
+Fri Oct 31 03:30:11 EDT 2025: Changes detected, committing...
+[main 3abb566] Auto-update: Regenerate podcast viewer index.html
+ 1 file changed, 1320 insertions(+), 1140 deletions(-)
+Fri Oct 31 03:30:11 EDT 2025: Pushing to GitHub...
+To github.com:vibedatascience/podcast-analysis-viewer.git
+   ad42068..3abb566  main -> main
+Fri Oct 31 03:30:13 EDT 2025: Update complete!
