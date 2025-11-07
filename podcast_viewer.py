@@ -452,6 +452,22 @@ class PodcastAnalyzer:
             line-height: 1.6;
             color: var(--text);
         }
+        /* Fix for dark background sections - force white text */
+.episode-content div[style*="background: linear-gradient(135deg, #1f2937"] {
+    color: white !important;
+}
+
+.episode-content div[style*="background: linear-gradient(135deg, #1f2937"] * {
+    color: white !important;
+}
+
+.episode-content div[style*="background: linear-gradient(135deg, #111827"] {
+    color: white !important;
+}
+
+.episode-content div[style*="background: linear-gradient(135deg, #111827"] * {
+    color: white !important;
+}
         
         /* Document-style cards for all content sections */
         .content-card {
