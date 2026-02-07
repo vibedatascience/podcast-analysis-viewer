@@ -689,6 +689,19 @@ class PodcastAnalyzer:
             100% { transform: rotate(360deg); }
         }
         
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, #8b5cf6 100%);
+            z-index: 1002;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+        }
+
         /* Mobile Menu Toggle */
         .mobile-menu-toggle {
             display: none;
@@ -726,8 +739,8 @@ class PodcastAnalyzer:
             pointer-events: none;
         }
         
-        /* Mobile Responsive Design */
-        @media (max-width: 768px) {
+        /* Mobile & Tablet Responsive Design (includes iPad) */
+        @media (max-width: 1024px) {
             .mobile-menu-toggle {
                 display: flex;
             }
@@ -1237,6 +1250,7 @@ class PodcastAnalyzer:
             </style>
         </head>
         <body>
+            <div class="reading-progress" id="readingProgress"></div>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1322,7 +1336,7 @@ class PodcastAnalyzer:
                 document.addEventListener('click', function(e) {{
                     // Close when episode item is clicked
                     if (e.target.closest('.episode-item')) {{
-                        if (window.innerWidth <= 768) {{
+                        if (window.innerWidth <= 1024) {{
                             closeMobileMenu();
                         }}
                     }}
@@ -1342,22 +1356,44 @@ class PodcastAnalyzer:
                 
                 // Handle escape key to close mobile menu
                 document.addEventListener('keydown', function(e) {{
-                    if (e.key === 'Escape' && window.innerWidth <= 768) {{
+                    if (e.key === 'Escape' && window.innerWidth <= 1024) {{
                         const sidebar = document.getElementById('sidebar');
                         if (sidebar.classList.contains('open')) {{
                             closeMobileMenu();
                         }}
                     }}
                 }});
-                
+
                 // Close menu when window is resized to desktop size
                 window.addEventListener('resize', function() {{
-                    if (window.innerWidth > 768) {{
+                    if (window.innerWidth > 1024) {{
                         closeMobileMenu();
                     }}
                 }});
                 
                 // The channel with the latest episode will be expanded automatically when showing the latest episode
+
+                // Reading progress bar
+                function updateReadingProgress() {{
+                    const progressBar = document.getElementById('readingProgress');
+                    const scrollTop = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+                    if (docHeight > 0) {{
+                        const progress = (scrollTop / docHeight) * 100;
+                        progressBar.style.width = Math.min(progress, 100) + '%';
+                    }}
+                }}
+
+                window.addEventListener('scroll', updateReadingProgress, {{ passive: true }});
+                window.addEventListener('resize', updateReadingProgress, {{ passive: true }});
+
+                // Reset progress when episode changes
+                const originalShowEpisode = showEpisode;
+                showEpisode = function(episodeIndex, updateUrl = true) {{
+                    document.getElementById('readingProgress').style.width = '0%';
+                    originalShowEpisode(episodeIndex, updateUrl);
+                }};
             </script>
         </body>
         </html>

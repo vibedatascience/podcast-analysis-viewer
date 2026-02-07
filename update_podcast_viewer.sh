@@ -7,8 +7,8 @@
 cd /Users/rahulchaudhary/podcast-analysis-viewer || exit 1
 
 # Run the podcast viewer generator
-echo "$(date): Running podcast_viewer.py..."
-/Users/rahulchaudhary/opt/anaconda3/bin/python3 podcast_viewer.py
+echo "$(date): Running podcast_viewer copy.py..."
+/Users/rahulchaudhary/podcast-analysis-viewer/.venv/bin/python3 "/Users/rahulchaudhary/podcast-analysis-viewer/podcast_viewer copy.py"
 
 # Check if there are changes to commit
 if git diff --quiet index.html; then
